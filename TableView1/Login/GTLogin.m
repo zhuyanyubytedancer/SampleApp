@@ -25,5 +25,6 @@
     if(self){
         
     }
+    return self;
 }
 @end

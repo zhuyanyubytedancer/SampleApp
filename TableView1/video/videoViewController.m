@@ -45,7 +45,7 @@
    // cell.backgroundColor=[UIColor redColor];
    // cell.intrinsicContentSize = CGSizeMake((self.view.frame.size-10)/2,300);
     if([cell isKindOfClass:[VideoCoverView class]]){
-        [(VideoCoverView* )cell layoutWithVideoCoverUrl:@"http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+        [(VideoCoverView* )cell layoutWithVideoCoverUrl:@"https://mixkit.imgix.net/videos/preview/mixkit-closeup-of-a-minimalist-building-3127-0.jpg" videoUrl:@"https://assets.mixkit.co/videos/download/mixkit-closeup-of-a-minimalist-building-3127.mp4"];
     }
     return cell;
 }

@@ -28,7 +28,7 @@
        AVAsset *asset = [AVAsset assetWithURL:Url];
        _videoItem = [AVPlayerItem playerItemWithAsset:asset];
        [_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-       [_videoItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+       [_videoItem addObserver:self forKeyPath:@"loadTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
        
        
        CMTime duration = _videoItem.duration;

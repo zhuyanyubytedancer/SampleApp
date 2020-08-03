@@ -10,6 +10,7 @@
 #import <AVKit/AVKit.h>
 #import "GTVideoPlayer.h"
 #import "GTVideoToolbar.h"
+#import <SDWebImage.h>
 
 @implementation VideoCoverView
 
@@ -19,7 +20,8 @@
     if(self){
         [self addSubview:({
             _coverView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-GTVideoToolbarHeight)];
-            _coverView.backgroundColor = [UIColor whiteColor];
+            _coverView.backgroundColor = [UIColor redColor];
+            _coverView.contentMode = UIViewContentModeScaleToFill;
             _coverView;
         })];
         [self addSubview:({
@@ -46,7 +48,12 @@
 - (void)layoutWithVideoCoverUrl:(NSString *)videoCoverUrl videoUrl:(NSString*)videoUrl
 {
     //暂时没有图片，先去掉
-    //_coverView.image = [UIImage imageNamed:videoCoverUrl];
+    [_coverView sd_setImageWithURL:[NSURL URLWithString:videoCoverUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        if(error){
+//
+//        }
+        NSLog(@"imageUrl:%@",[imageURL absoluteString]);
+    }];
     _videoCoverUrl = videoCoverUrl;
     _videoUrl = videoUrl;
     [_toolbar layoutWithModel:nil];
